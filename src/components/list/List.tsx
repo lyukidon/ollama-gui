@@ -1,4 +1,5 @@
 import React from 'react';
+import { generateChatCompletion, listLocalModels } from '../../utils/api';
 
 const ListTitle = () => {
   return (
@@ -9,14 +10,21 @@ const ListTitle = () => {
 }
 
 const ListContent = () => {
+  const handleClick = () => {
+    generateChatCompletion("안녕하세요")
+  }
+
   return(
-    <button className='w-full h-[40px] px-[20px]
-      bg-system-darkgrey
-      text-system-white
-      rounded-[30px]
-      truncate overflow-hidden
-      hover:bg-[#3d3a3a]
-      '>
+    <button 
+      className='w-full h-[40px] px-[20px]
+        bg-system-darkgrey
+        text-system-white
+        rounded-[30px]
+        truncate overflow-hidden
+        hover:bg-[#3d3a3a]
+        '
+      onClick={handleClick}
+      >
       안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕안녕
     </button>
   )

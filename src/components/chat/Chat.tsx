@@ -5,8 +5,8 @@ const QuestionBox = () => {
     <div className="w-full px-[30px] py-[20px] break-words rounded-[20px] bg-system-darkgrey text-system-white">
       질문 박스
     </div>
-  )
-}
+  );
+};
 
 const ChatBox = () => {
   return (
@@ -24,7 +24,11 @@ const ChatBox = () => {
 export const SearchBox = () => {
   return (
     <div className="flex flex-row w-[640px] h-[56px] px-[30px] gap-[20px] justify-between items-center bg-system-lightgrey rounded-[30px]">
-      <input type="text" className="w-[500px] h-[2rem] bg-system-lightgrey" placeholder="대화를 입력하세요." />
+      <input
+        type="text"
+        className="w-[500px] h-[2rem] bg-system-lightgrey"
+        placeholder="대화를 입력하세요."
+      />
       <svg
         width="30px"
         height="30px"
