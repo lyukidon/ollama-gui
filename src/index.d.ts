@@ -11,3 +11,8 @@ export interface GenerateChatCompletionResponseType {
   };
   done: boolean;
 }
+
+// redux
+interface ChatSliceType {
+  chat: any[]
+}
