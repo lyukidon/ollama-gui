@@ -13,6 +13,32 @@ export interface GenerateChatCompletionResponseType {
 }
 
 // redux
-interface ChatSliceType {
-  chat: any[]
+
+export interface ChatRequestType {
+  role: string;
+  content: string;
+}
+
+export interface ChatResponseType {
+  // model: string;
+  // created_at: string;
+  // message: {
+    role: string;
+    content: string;
+  // };
+  // done: boolean;
+  // total_duration: number;
+  // load_duration: number;
+  // prompt_eval_count: number;
+  // prompt_eval_duration: number;
+  // eval_count: number;
+  // eval_duration: number;
+}
+
+export type ChatType = ChatRequestType | ChatResponseType
+
+export type ChatSliceType = ChatType[];
+
+export interface SearchInputType {
+  search: string;
 }
