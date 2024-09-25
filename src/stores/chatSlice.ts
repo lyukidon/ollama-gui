@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ChatSliceType } from "..";
+import {sample} from '../../__mock__/chat.mock'
 
 export const chatSlice = createSlice({
   name: "chat",
-  initialState: [],
+  initialState: [...sample],
   reducers: {
     getChat: (state) => {
       return state;

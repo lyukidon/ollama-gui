@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import ChatComponent from "../components/chat/Chat";
 
-const Chat = () => {
+const ChatPage = () => {
   const chatData = useSelector((state: any) => state.chat);
 
   return (
@@ -11,4 +11,4 @@ const Chat = () => {
   );
 }
 
-export default Chat;
+export default ChatPage;

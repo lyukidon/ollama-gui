@@ -1,10 +1,10 @@
 import './App.css';
-import Chat from './routes/Chat';
+import ChatPage from './routes/Chat.page';
 
 function App() {
   return (
     <div className="App">
-      <Chat />
+      <ChatPage />
     </div>
   );
 }
