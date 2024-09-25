@@ -15,7 +15,7 @@ export interface GenerateChatCompletionResponseType {
 // redux
 
 export interface ChatRequestType {
-  role: string;
+  role: "user";
   content: string;
 }
 
@@ -23,7 +23,7 @@ export interface ChatResponseType {
   // model: string;
   // created_at: string;
   // message: {
-    role: string;
+    role: "assistant";
     content: string;
   // };
   // done: boolean;

@@ -45,7 +45,7 @@ export const generateCompletion = async (prompt: string) => {
  * Generate the next message in a chat with a provided model.
  * @returns 
  */
-export const generateChatCompletion = async (prompt: string): Promise<AxiosResponse<GenerateChatCompletionResponseType>> => {
+export const generateChatCompletion = async (prompt: string): Promise<GenerateChatCompletionResponseType> => {
   const response = await axios({
     baseURL: process.env.VITE_OLLAMA_URL,
     url: "chat",
