@@ -7,11 +7,6 @@ import { ChatBoxProps } from "../../props";
 
 const ChatBubble = ({ chat }: ChatBoxProps) => {
 
-  const scrollPositionY = document.documentElement.scrollTop;
-console.log(scrollPositionY);
-console.log(document.body.scrollHeight);
-
-
   return (
     <div
       className={`flex flex-col gap-[15px] w-full px-[30px] py-[20px] break-words rounded-[20px] 
