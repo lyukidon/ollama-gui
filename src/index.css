@@ -6,8 +6,9 @@ html{
   background-color: #fff;
 }
 
-pre{
+/* pre{
   background-color: black;
   color: wheat;
   padding: 10px 20px;
-}
+  overflow-x: scroll;
+} */
