@@ -1,12 +1,14 @@
 import { useSelector } from "react-redux";
-import ChatComponent from "../components/chat/Chat";
+import Chat from "../components/chat/Chat";
+import { SearchBox } from "../components/chat/SearchBox";
 
 const ChatPage = () => {
   const chatData = useSelector((state: any) => state.chat);
 
   return (
-    <div className="flex flex-row w-screen justify-center">
-      <ChatComponent chatData={chatData} />
+    <div className="flex flex-col items-center">
+      <Chat chatData={chatData} />
+      <SearchBox />
     </div>
   );
 }

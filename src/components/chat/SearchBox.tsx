@@ -35,7 +35,12 @@ export const SearchBox = () => {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="
+      w-screen py-[10px]
+      fixed bottom-0 left-0
+      flex flex-col justify-center items-center
+      bg-system-white
+    ">
       {loading && <div>로딩 중...</div>}
       <form
         onSubmit={handleSubmit(onSubmit)}
