@@ -17,6 +17,7 @@ const ChatBubble = ({ chat }: ChatBoxProps) => {
     }`}
     >
       <Markdown
+        remarkPlugins={[remarkGfm]}
         children={chat.content}
         components={{
           code(props) {

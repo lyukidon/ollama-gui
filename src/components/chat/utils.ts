@@ -1,8 +1,8 @@
-export const isAtBottom = () => {
+const isAtBottom = () => {
   return window.innerHeight + window.scrollY >= document.documentElement.scrollHeight;
 };
 
-export const scrollBottom = () => {
+const scrollBottom = () => {
   window.scrollTo({
     top: document.body.scrollHeight,
     left: 0,
