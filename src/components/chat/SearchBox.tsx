@@ -45,8 +45,8 @@ export const SearchBox = () => {
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-row gap-[20px] justify-between items-center
-      w-[640px] min-h-[56px] max-h-[200px] px-[30px] 
-      bg-system-lightgrey rounded-[30px]"
+        w-[640px] min-h-[56px] max-h-[200px] px-[30px] 
+        bg-system-lightgrey rounded-[30px]"
       >
         <div>
           {errors.search && <span className="text-red-500">빈 내용은 전달할 수 없습니다.</span>}

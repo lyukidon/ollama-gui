@@ -1,5 +1,9 @@
 import axios, { AxiosResponse } from 'axios';
 import { GenerateChatCompletionResponseType } from '..';
+import { useSelector } from 'react-redux';
+import store from '../stores/store';
+
+const {model} = store.getState().setting;
 
 /**
  * https://github.com/ollama/ollama/blob/main/docs/api.md#list-local-models
@@ -54,7 +58,7 @@ export const generateChatCompletion = async (prompt: string): Promise<GenerateCh
       "Content-Type": "application/json",
     },
     data: {
-      model: "llama3.1",
+      model: model,
       messages: [{
         role: "user",
         content: prompt,

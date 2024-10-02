@@ -1,8 +1,23 @@
-import { configureStore } from '@reduxjs/toolkit';
-import chatReducer from './chatSlice';
+import { combineReducers, configureStore, createStore } from "@reduxjs/toolkit";
+import chatReducer from "./chatSlice";
+import settingReducer from "./settingSlice";
+import storage from "redux-persist/lib/storage";
+import { persistReducer } from "redux-persist";
 
-export default configureStore({
-    reducer: {
-        chat: chatReducer
-    },
-})
+const reducers = combineReducers({
+  chat: chatReducer,
+  setting: settingReducer,
+});
+
+const persistConfig = {
+  key: "root",
+  storage,
+  whiteist:["setting"],
+  blacklist:["chat"]
+};
+
+const persistedReducer = persistReducer(persistConfig, reducers);
+
+const store = configureStore({ reducer: persistedReducer });
+
+export default store;
