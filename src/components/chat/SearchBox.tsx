@@ -34,6 +34,14 @@ export const SearchBox = () => {
     setLoading(false);
   };
 
+  const handleKeyPress = (event: any) => {
+    console.log(event.key)
+    if (event.key === "Enter") {
+      event.preventDefault();
+      handleSubmit(onSubmit)()
+    }
+};
+
   return (
     <div className="
       w-screen py-[10px]
@@ -54,6 +62,7 @@ export const SearchBox = () => {
         <textarea
           className="w-[500px] h-[2rem] bg-system-lightgrey"
           placeholder="대화를 입력하세요."
+          onKeyDown={handleKeyPress}
           {...register("search", { required: true })}
           ref={(e) => {
             ref(e);

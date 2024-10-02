@@ -1,9 +1,6 @@
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 import { GenerateChatCompletionResponseType } from '..';
-import { useSelector } from 'react-redux';
 import store from '../stores/store';
-
-const {model} = store.getState().setting;
 
 /**
  * https://github.com/ollama/ollama/blob/main/docs/api.md#list-local-models
@@ -50,6 +47,7 @@ export const generateCompletion = async (prompt: string) => {
  * @returns 
  */
 export const generateChatCompletion = async (prompt: string): Promise<GenerateChatCompletionResponseType> => {
+  const {model} = store.getState().setting;
   const response = await axios({
     baseURL: process.env.VITE_OLLAMA_URL,
     url: "chat",

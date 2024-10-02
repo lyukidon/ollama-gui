@@ -3,10 +3,10 @@ import { useDispatch } from "react-redux";
 import { setModel } from "../../stores/settingSlice";
 import { useSelector } from "react-redux";
 
-const ModelList = ({list}: any) => {
+const ModelList = ({ list }: any) => {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
-  const settingState = useSelector((state:any) => state.setting)
+  const settingState = useSelector((state: any) => state.setting);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -15,8 +15,8 @@ const ModelList = ({list}: any) => {
   const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const { name } = e.target as HTMLButtonElement;
     dispatch(setModel(name));
-    toggleDropdown()
-  }
+    toggleDropdown();
+  };
 
   return (
     <div className="relative inline-block text-left">
@@ -27,7 +27,11 @@ const ModelList = ({list}: any) => {
           id="menu-button"
           onClick={toggleDropdown}
         >
-          {settingState.model}
+          {settingState.model ? (
+            settingState.model
+          ) : (
+            <span className="text-red-500">"모델을 선택해주세요"</span>
+          )}
           <svg
             className="-mr-1 ml-2 h-5 w-5"
             xmlns="http://www.w3.org/2000/svg"
@@ -52,18 +56,19 @@ const ModelList = ({list}: any) => {
           aria-labelledby="menu-button"
         >
           <div className="py-1" role="none">
-            {list.length !== 0 && list.map((model: any) => {
-              return(
-                <button
-                  key={model.name}
-                  name={model.name}
-                  className="w-full px-4 py-2 text-sm text-left text-system-black hover:bg-gray-100"
-                  onClick={handleClick}
-                >
-                  {model.name}
-                </button>
-              );
-            })}
+            {list.length !== 0 &&
+              list.map((model: any) => {
+                return (
+                  <button
+                    key={model.name}
+                    name={model.name}
+                    className="w-full px-4 py-2 text-sm text-left text-system-black hover:bg-gray-100"
+                    onClick={handleClick}
+                  >
+                    {model.name}
+                  </button>
+                );
+              })}
           </div>
         </div>
       )}
