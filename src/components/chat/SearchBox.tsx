@@ -37,8 +37,12 @@ export const SearchBox = () => {
   const handleKeyPress = (event: any) => {
     console.log(event.key)
     if (event.key === "Enter") {
-      event.preventDefault();
-      handleSubmit(onSubmit)()
+      if (event.shiftKey){
+        console.log('shift+enter')
+      }else{
+        event.preventDefault();
+        handleSubmit(onSubmit)()
+      }
     }
 };
 
@@ -51,7 +55,7 @@ export const SearchBox = () => {
     ">
       {loading && <div>로딩 중...</div>}
       <form
-        onSubmit={handleSubmit(onSubmit)}
+        onKeyDown={handleKeyPress}
         className="flex flex-row gap-[20px] justify-between items-center
         w-[640px] min-h-[56px] max-h-[200px] px-[30px] 
         bg-system-lightgrey rounded-[30px]"
@@ -62,7 +66,6 @@ export const SearchBox = () => {
         <textarea
           className="w-[500px] h-[2rem] bg-system-lightgrey"
           placeholder="대화를 입력하세요."
-          onKeyDown={handleKeyPress}
           {...register("search", { required: true })}
           ref={(e) => {
             ref(e);

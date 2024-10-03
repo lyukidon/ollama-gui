@@ -12,12 +12,18 @@ const reducers = combineReducers({
 const persistConfig = {
   key: "root",
   storage,
-  whiteist:["setting"],
-  blacklist:["chat"]
+  whiteist: ["setting"],
+  blacklist: ["chat"],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
 
-const store = configureStore({ reducer: persistedReducer });
+const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
+});
 
 export default store;
