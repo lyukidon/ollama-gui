@@ -52,6 +52,7 @@ export const SearchBox = () => {
       fixed bottom-0 left-0
       flex flex-col justify-center items-center
       bg-system-white
+      bg-opacity-80
     ">
       {loading && <div>로딩 중...</div>}
       <form

@@ -14,7 +14,8 @@ const StatusBar = () => {
       className="
       fixed top-0 left-0
       flex flex-row justify-between
-      w-full h-[76px]
+      w-full h-[60px] pt-[12px] px-[10px]
+      bg-white bg-opacity-80
     "
     >
       <ModelList list={data} />

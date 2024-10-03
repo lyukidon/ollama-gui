@@ -15,7 +15,7 @@ const Chat = ({ chatData }: any) => {
 
   return (
     <div className="
-      w-[80%] min-w-[680px] h-[100vh-90px] px-[20px] pt-[20px] pb-[90px]
+      w-[80%] min-w-[680px] h-[100vh-90px] px-[20px] pt-[70px] pb-[90px]
       flex flex-col gap-[20px]
     ">
       {chatData.map((chat: ChatType) => (

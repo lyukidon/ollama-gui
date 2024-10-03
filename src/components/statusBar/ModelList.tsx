@@ -23,7 +23,7 @@ const ModelList = ({ list }: any) => {
       <div>
         <button
           type="button"
-          className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-system-black bg-system-white rounded-md hover:bg-system-lightgrey focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-system-black bg-opacity-0 rounded-md hover:bg-system-lightgrey focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           id="menu-button"
           onClick={toggleDropdown}
         >
