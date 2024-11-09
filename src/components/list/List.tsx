@@ -1,13 +1,12 @@
-import React from 'react';
-import { generateChatCompletion, listLocalModels } from '../../utils/api';
+import { generateChatCompletion } from '../../utils/api';
 
-const ListTitle = () => {
-  return (
-    <div className=''>
+// const ListTitle = () => {
+//   return (
+//     <div className=''>
 
-    </div>
-  )
-}
+//     </div>
+//   )
+// }
 
 const ListContent = () => {
   const handleClick = () => {

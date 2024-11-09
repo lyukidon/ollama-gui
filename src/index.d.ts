@@ -42,3 +42,8 @@ export type ChatSliceType = ChatType[];
 export interface SearchInputType {
   search: string;
 }
+
+declare module 'react-syntax-highlighter' {
+  const content: any;
+  export default content;
+}

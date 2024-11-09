@@ -1,4 +1,4 @@
-import { combineReducers, configureStore, createStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import chatReducer from "./chatSlice";
 import settingReducer from "./settingSlice";
 import storage from "redux-persist/lib/storage";

@@ -17,16 +17,16 @@ export const SearchBox = () => {
   } = useForm<SearchInputType>();
   const { ref } = register("search");
 
-  const onSubmit: SubmitHandler<SearchInputType> = async (data) => {
+  const onSubmit: SubmitHandler<SearchInputType> = async (data) => {    
     setLoading(true);
 
     const content = data.search;
 
-    const response = await generateChatCompletion(content)
-
     if (inputRef.current) {
       inputRef.current.value = "";
     }
+
+    const response = await generateChatCompletion(content);
 
     dispatch(setChat({ role: "user", content }));
     dispatch(setChat(response.message));
@@ -35,28 +35,28 @@ export const SearchBox = () => {
   };
 
   const handleKeyPress = (event: any) => {
-    console.log(event.key)
-    if (event.key === "Enter") {
-      if (event.shiftKey){
-        console.log('shift+enter')
-      }else{
+    console.log(event.type);
+    if (event.key === "Enter" || event.type === "click") {
+      if (event.shiftKey) {
+      } else {
         event.preventDefault();
-        handleSubmit(onSubmit)()
+        handleSubmit(onSubmit)();
       }
     }
-};
+  };
 
   return (
-    <div className="
+    <div
+      className="
       w-screen py-[10px]
       fixed bottom-0 left-0
       flex flex-col justify-center items-center
       bg-system-white
-      bg-opacity-80
-    ">
+      bg-opacity-70
+    "
+    >
       {loading && <div>로딩 중...</div>}
       <form
-        onKeyDown={handleKeyPress}
         className="flex flex-row gap-[20px] justify-between items-center
         w-[640px] min-h-[56px] max-h-[200px] px-[30px] 
         bg-system-lightgrey rounded-[30px]"
@@ -65,6 +65,7 @@ export const SearchBox = () => {
           {errors.search && <span className="text-red-500">빈 내용은 전달할 수 없습니다.</span>}
         </div>
         <textarea
+          onKeyDown={handleKeyPress}
           className="w-[500px] h-[2rem] bg-system-lightgrey"
           placeholder="대화를 입력하세요."
           {...register("search", { required: true })}
@@ -73,7 +74,7 @@ export const SearchBox = () => {
             inputRef.current = e;
           }}
         />
-        <button type="submit">
+        <button type="button" onClick={handleKeyPress}>
           <svg
             width="30px"
             height="30px"
