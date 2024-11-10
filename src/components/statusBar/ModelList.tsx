@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setModel } from "../../stores/settingSlice";
 import { useSelector } from "react-redux";
@@ -17,6 +17,14 @@ const ModelList = ({ list }: any) => {
     dispatch(setModel(name));
     toggleDropdown();
   };
+
+  // if selected model doesn't exist
+  useEffect(() => {
+    const currentModel = list?.filter((cur:any) => {
+      return cur.model === settingState.model
+    });
+    if (!currentModel) setModel("");
+  })
 
   return (
     <div className="relative inline-block text-left">
