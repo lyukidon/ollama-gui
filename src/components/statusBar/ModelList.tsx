@@ -24,7 +24,7 @@ const ModelList = ({ list }: any) => {
       return cur.model === settingState.model
     });
     if (!currentModel) setModel("");
-  })
+  },[])
 
   return (
     <div className="relative inline-block text-left">
@@ -64,7 +64,7 @@ const ModelList = ({ list }: any) => {
           aria-labelledby="menu-button"
         >
           <div className="py-1" role="none">
-            {list.length !== 0 &&
+            {list && list.length !== 0 ?
               list.map((model: any) => {
                 return (
                   <button
@@ -76,7 +76,7 @@ const ModelList = ({ list }: any) => {
                     {model.name}
                   </button>
                 );
-              })}
+              }): <div className="text-center">Not Exist</div>}
           </div>
         </div>
       )}

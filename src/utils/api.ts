@@ -2,6 +2,10 @@ import axios from 'axios';
 import { GenerateChatCompletionResponseType } from '..';
 import store from '../stores/store';
 
+axios.defaults.baseURL = process.env.VITE_OLLAMA_URL;
+axios.defaults.headers.common['Access-Control-Allow-Origin'] = process.env.VITE_OLLAMA_URL;
+axios.defaults.headers.post['Content-Type'] = 'application/json';
+
 /**
  * https://github.com/ollama/ollama/blob/main/docs/api.md#list-local-models
  * List models that are available locally.
@@ -9,11 +13,10 @@ import store from '../stores/store';
  */
 export const listLocalModels = async () => {
   const response = await axios({
-    baseURL: process.env.VITE_OLLAMA_URL,
     url: "tags",
     method: "GET",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     }
   })
   return response.data.models;
@@ -26,7 +29,6 @@ export const listLocalModels = async () => {
  */
 export const generateCompletion = async (prompt: string) => {
   const response = await axios({
-    baseURL: process.env.VITE_OLLAMA_URL,
     url: "generate",
     method: "POST",
     headers: {
@@ -49,7 +51,6 @@ export const generateCompletion = async (prompt: string) => {
 export const generateChatCompletion = async (prompt: string): Promise<GenerateChatCompletionResponseType> => {
   const {model} = store.getState().setting;
   const response = await axios({
-    baseURL: process.env.VITE_OLLAMA_URL,
     url: "chat",
     method: "POST",
     headers: {
@@ -75,7 +76,6 @@ export const generateChatCompletion = async (prompt: string): Promise<GenerateCh
  */
 export const showModelInformation = async () => {
   const response = await axios({
-    baseURL: process.env.VITE_OLLAMA_URL,
     url: "show",
     method: "POST",
     headers: {
